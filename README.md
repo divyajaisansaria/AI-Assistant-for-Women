@@ -18,9 +18,6 @@ Udaan is a voice- and image-powered platform that connects rural women entrepren
 - 📲 **WhatsApp-Based Sharing**  
   Auto-generated posters and shareable links for promotion on social media.
 
-- 🔄 **Undo Feature**  
-  Voice command like `पिछला बदलो` allows users to fix mistakes easily.
-
 - 🔒 **Privacy-First Design**  
   Location and audio data collection is optional, respecting user trust.
 
@@ -40,11 +37,11 @@ Udaan is a voice- and image-powered platform that connects rural women entrepren
 
 ## 📊 Tech Stack
 
-- 🧠 **AI Models**: Whisper (for speech-to-text), CV models for product detection  
+- 🧠 **AI Models**: Whisper (for speech-to-text), CV models (Google Gemini) for product detection  
 - 🧰 **Automation**: [n8n](https://n8n.io) for orchestrating listing, description, sharing, and logistics  
 - 🖼️ **Frontend**: React or Flutter (depending on your stack)  
-- 🔙 **Backend**: FastAPI / Flask  
-- ☁️ **Storage/DB**: Firebase / Supabase / AWS S3
+- 🔙 **Backend**: FastAPI , SHOPIFY API, PYWHATKIT, TWILIO, SHIPROCKET API, SERP API
+- ☁️ **Storage/DB**: Mongo DB/ GOOGLE SHEETS
 
 ---
 
@@ -60,8 +57,6 @@ Udaan is a voice- and image-powered platform that connects rural women entrepren
 ---
 
 ## 🖼️ Project Workflow
-
-```mermaid
 graph LR
 A[User speaks + uploads photo] --> B[AI generates description]
 B --> C[List product digitally]
