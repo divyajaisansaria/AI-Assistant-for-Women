@@ -1,0 +1,1531 @@
+{
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        760,
+        -380
+      ],
+      "id": "a67c4978-c866-45fb-a863-14186683e182",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        920,
+        -400
+      ],
+      "id": "bc769f5d-9b83-4de8-86d2-b2504655e7b4",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1ZW5A1JhpBQqKFMWOn-toTBj05yuWcShq__eQTcZeJF8",
+          "mode": "list",
+          "cachedResultName": "Copy of ProductDescriptions",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZW5A1JhpBQqKFMWOn-toTBj05yuWcShq__eQTcZeJF8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ZW5A1JhpBQqKFMWOn-toTBj05yuWcShq__eQTcZeJF8/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1740,
+        -580
+      ],
+      "id": "8407bb0b-0d95-491d-a9b1-d5dfdd780e3e",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7cvTGTfHh9pf9pJK",
+          "name": "Google Sheets account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1785e92b-4c9d-4f46-9dc3-c280423b5262",
+              "name": "Title",
+              "value": "={{ $json.Title }}",
+              "type": "string"
+            },
+            {
+              "id": "1e9c627f-9bcb-4051-9a0b-cafbf35bab8e",
+              "name": "Material",
+              "value": "={{ $json.Material }}",
+              "type": "string"
+            },
+            {
+              "id": "a33ae5be-0028-4486-ab50-3a5b41092c8e",
+              "name": "Size",
+              "value": "={{ $json.Size }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1980,
+        -580
+      ],
+      "id": "8de732be-3ffc-4c2a-992f-d349015cc9bb",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1CRqfJ-oNtN6Gf5Bv4DzaESFf4SnKImVepRqBna1fV70",
+          "mode": "list",
+          "cachedResultName": "scraped stores",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CRqfJ-oNtN6Gf5Bv4DzaESFf4SnKImVepRqBna1fV70/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CRqfJ-oNtN6Gf5Bv4DzaESFf4SnKImVepRqBna1fV70/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $json.title }}",
+            "address": "={{ $json.address }}",
+            "phone": "={{ $json.phone }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "address",
+              "displayName": "address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        2560,
+        -1140
+      ],
+      "id": "285b3f98-7644-482b-9a9f-54a60a72e1ab",
+      "name": "Google Sheets4",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7cvTGTfHh9pf9pJK",
+          "name": "Google Sheets account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1780,
+        60
+      ],
+      "id": "a4f6dd01-005f-4b21-8c7c-c8eae1ff3e8e",
+      "name": "HTTP Request4"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2080,
+        60
+      ],
+      "id": "341a7df5-86d7-4626-81b6-e44bcac7817e",
+      "name": "Code6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b52a609e-98c6-4610-b96d-869193271c58",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2260,
+        60
+      ],
+      "id": "a7cb9ba7-e5bd-43e7-9b6f-0e54fa9bc275",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        2540,
+        -100
+      ],
+      "id": "b1caee55-2175-48c9-a579-cd4a461dded8",
+      "name": "Twilio"
+    },
+    {
+      "parameters": {
+        "resource": "call",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        160
+      ],
+      "id": "6ace511f-b998-4ba7-a59f-4cb1969623a5",
+      "name": "Twilio1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2720,
+        160
+      ],
+      "id": "8f217f14-2d5b-4667-81b8-681266a44873",
+      "name": "HTTP Request5"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2940,
+        160
+      ],
+      "id": "e7c7ddbe-225d-4f63-90cc-8bf2100a4457",
+      "name": "HTTP Request6"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3160,
+        160
+      ],
+      "id": "8e3d9bab-3984-4e0a-ae6d-d2ec356e65a0",
+      "name": "Code7"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3340,
+        160
+      ],
+      "id": "b91fcf35-28e2-43e9-9616-7c97750d93d6",
+      "name": "HTTP Request7"
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.messageBird",
+      "typeVersion": 1,
+      "position": [
+        3560,
+        160
+      ],
+      "id": "8fc02a29-2d33-4711-8206-7ad163cec1d4",
+      "name": "MessageBird"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.telegram.org/bot7881545396:AAGDe6PjeHqR01hQaqv_stFBFPGXI4qXFgk/getUpdates",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -860,
+        -260
+      ],
+      "id": "47938d11-616b-44be-9b76-9caf4db81e12",
+      "name": "HTTP Request8"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.telegram.org/bot7881545396:AAGDe6PjeHqR01hQaqv_stFBFPGXI4qXFgk/getFile?file_id={{ $json.result[0].message.photo[0].file_id }}\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -560,
+        -260
+      ],
+      "id": "83768a92-831e-4053-86bb-bd8d31743e9f",
+      "name": "HTTP Request9"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.telegram.org/file/bot7881545396:AAGDe6PjeHqR01hQaqv_stFBFPGXI4qXFgk/{{ $json[\"result\"][\"file_path\"] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -360,
+        -260
+      ],
+      "id": "62258e4f-2cd3-4335-8d86-ce50c4b8ed95",
+      "name": "HTTP Request10"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.result.file_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -140,
+        -260
+      ],
+      "id": "56a124dd-3b8f-4fb6-abda-d35e00925058",
+      "name": "Telegram1",
+      "webhookId": "aa4bdf45-9b8e-42df-86b2-fc258f41e6dc",
+      "credentials": {
+        "telegramApi": {
+          "id": "S9sJHGgPYNOXhfGG",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const binaryData = items[0].binary.data.data;\nconst base64Image = Buffer.from(binaryData, 'binary').toString('base64');\n\nreturn [\n  {\n    json: {\n      image: `data:image/jpeg;base64,${base64Image}`,\n      prompt: \"What is shown in this image?\"\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        80,
+        -280
+      ],
+      "id": "c2ffbc4f-4771-4513-906f-0479f8a34a5a",
+      "name": "Code8"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=I am providing an image of a handmade product along with a user description, which may come from voice input. Your task is to act as an intelligent product catalog assistant. First, analyze the image to understand its content. Then, using both the visual information and the user-provided description: {{ $json.image }}, generate a detailed product listing in valid JSON format. The listing should include the following fields if relevant: a concise product title, a 2–3 sentence marketing-style description, the category (such as Clothing, Basket, or Jewelry), the main visible color, the likely region or cultural origin (e.g., Assam, Gujarat), 3–6 tags (like 'eco-friendly', 'handmade', etc.), material type if identifiable (such as fabric or wood), size if it's clothing, and dimensions if it's something like a basket. Use simple English. Do not return any explanation — only return valid JSON enclosed in a code block."
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        300,
+        -440
+      ],
+      "id": "7105b5a8-32f1-4877-9dc9-836ae2ca424f",
+      "name": "Basic LLM Chain3"
+    },
+    {
+      "parameters": {
+        "path": "976cea9e-4c00-4fd6-b8e2-5320bec895a5",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1100,
+        -260
+      ],
+      "id": "a7a8fbfe-fb7a-41e6-abf6-8b8752456cd4",
+      "name": "Webhook",
+      "webhookId": "976cea9e-4c00-4fd6-b8e2-5320bec895a5"
+    },
+    {
+      "parameters": {
+        "content": "load the image\n",
+        "height": 440,
+        "width": 1080
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -960,
+        -420
+      ],
+      "typeVersion": 1,
+      "id": "aca97a39-2851-4d6f-8e6d-526e41e0cbc5",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "Analyse image output and voice output\n",
+        "height": 540,
+        "width": 860,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        680,
+        -540
+      ],
+      "typeVersion": 1,
+      "id": "7ef7e363-2e04-4024-b510-e7f18194f86c",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "Regional lauangue voice to english text",
+        "height": 520,
+        "width": 860,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -260,
+        180
+      ],
+      "typeVersion": 1,
+      "id": "11ea2a4c-c4e9-4722-8f63-7a1f2a71587a",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 380,
+        "width": 1500,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1700,
+        -680
+      ],
+      "typeVersion": 1,
+      "id": "deaa9ff2-ffef-4e75-b32d-3316310b493c",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "generate image for advertisement",
+        "height": 260,
+        "width": 560,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3360,
+        -600
+      ],
+      "typeVersion": 1,
+      "id": "4ed35521-50c5-453e-8382-2f5dcdd028ff",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "find nearby locations and send the advertisement to the nearby shops",
+        "height": 420,
+        "width": 1400,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1760,
+        -1260
+      ],
+      "typeVersion": 1,
+      "id": "86af4f35-41e5-458c-9726-77f8160f4cad",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "send product to online plateform ",
+        "height": 640,
+        "width": 2260,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1680,
+        -140
+      ],
+      "typeVersion": 1,
+      "id": "a7ac64b0-84a0-4020-b319-ec88d0ea173a",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        360,
+        -240
+      ],
+      "id": "de6bbaf5-2767-45fb-baad-ffe716fe3fe0",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "avi83b4ksYAhjelO",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.telegram.org/bot7881545396:AAGDe6PjeHqR01hQaqv_stFBFPGXI4qXFgk/getFile?file_id={{ $json.result[1].message.voice.file_id }}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -180,
+        420
+      ],
+      "id": "e77155e2-cb89-4544-9faf-dddae332b11e",
+      "name": "HTTP Request11"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.telegram.org/file/bot7881545396:AAGDe6PjeHqR01hQaqv_stFBFPGXI4qXFgk/{{ $json[\"result\"][\"file_path\"] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        20,
+        420
+      ],
+      "id": "d0cd0b12-2e5d-4f01-8e6d-1994bb2d41c7",
+      "name": "HTTP Request13"
+    },
+    {
+      "parameters": {
+        "jsCode": "const binaryData = items[0].binary.data.data;\n\nreturn [\n  {\n    json: {\n      fileBase64: binaryData,\n      mimeType: 'audio/ogg',\n      fileName: 'input.oga'\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        420
+      ],
+      "id": "404a3a1c-b9ab-46cd-b24f-173cfdc6f988",
+      "name": "Code9"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.sarvam.ai/speech-to-text",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api-subscription-key",
+              "value": "sk_q5rtkk71_EqaASQusVA2VPqJOTQCjjb79"
+            },
+            {
+              "name": "Content-Type",
+              "value": "multipart/form-data"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "saarika:v2.5"
+            },
+            {
+              "name": "language_code",
+              "value": "en-IN"
+            },
+            {
+              "name": "file",
+              "value": "={{ $json.fileBase64 }}"
+            },
+            {
+              "name": "type",
+              "value": "audio/opus"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        420
+      ],
+      "id": "9bb0ebd3-b4c9-4371-bd22-458fe2b885f3",
+      "name": "HTTP Request14"
+    },
+    {
+      "parameters": {
+        "url": "=https://serpapi.com/search.json?q={{ $json.Title }}&engine=google&api_key=571f4b27c0863b6e90935dae3d6884060b860830335efaf33743ad51f7a97e94\n",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "engine",
+              "value": "amazon"
+            },
+            {
+              "name": "k",
+              "value": "={{ $json.Title }}"
+            },
+            {
+              "name": "amazon_domain",
+              "value": "amazon.com"
+            },
+            {
+              "name": "api_key",
+              "value": "571f4b27c0863b6e90935dae3d6884060b860830335efaf33743ad51f7a97e94"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2380,
+        -580
+      ],
+      "id": "c1db9291-9245-4893-b2e2-88f200203144",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "597ecf92-1e16-4124-abfe-9eb9055e9741",
+              "name": "organic_results[0].title",
+              "value": "={{ $json.organic_results[0].title }}",
+              "type": "string"
+            },
+            {
+              "id": "95ff301c-7806-44fe-ba1f-704036e9b8c2",
+              "name": "organic_results[1].rich_snippet.bottom.detected_extensions.price",
+              "value": "={{ $json.organic_results[1].rich_snippet.bottom.detected_extensions.price }}",
+              "type": "number"
+            },
+            {
+              "id": "adb9c22f-41c3-4b1b-ab8a-ae2c15290628",
+              "name": "organic_results[2].title",
+              "value": "={{ $json.organic_results[2].title }}",
+              "type": "string"
+            },
+            {
+              "id": "f774c00a-1761-4e47-a8d7-7dd1b21439d0",
+              "name": "organic_results[2].rich_snippet.bottom.detected_extensions.price",
+              "value": "={{ $json.organic_results[2].rich_snippet.bottom.detected_extensions.price }}",
+              "type": "number"
+            },
+            {
+              "id": "3b041e5a-8f2c-4d38-9274-4b2639f9d9a5",
+              "name": "organic_results[4].title",
+              "value": "={{ $json.organic_results[4].title }}",
+              "type": "string"
+            },
+            {
+              "id": "226c790f-1075-46ae-a738-6cad954398b9",
+              "name": "organic_results[4].rich_snippet.bottom.detected_extensions.price",
+              "value": "={{ $json.organic_results[4].rich_snippet.bottom.detected_extensions.price }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -580
+      ],
+      "id": "953312ab-32bb-4adf-842e-71685f5c3288",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1suYGZZGPKhexDpnRyjHNpU7tdi_nfTpKair3zj1q1Jo",
+          "mode": "list",
+          "cachedResultName": "Scraped data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suYGZZGPKhexDpnRyjHNpU7tdi_nfTpKair3zj1q1Jo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suYGZZGPKhexDpnRyjHNpU7tdi_nfTpKair3zj1q1Jo/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.organic_results[0].title }}",
+            "price 1": "={{ $json.organic_results[1].rich_snippet.bottom.detected_extensions.price }}",
+            "Price 2": "={{ $json.organic_results[2].rich_snippet.bottom.detected_extensions.price }}",
+            "Price 3": "={{ $json.organic_results[4].rich_snippet.bottom.detected_extensions.price }}",
+            "Avg": "="
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "price 1",
+              "displayName": "price 1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Price 2",
+              "displayName": "Price 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Price 3",
+              "displayName": "Price 3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Avg",
+              "displayName": "Avg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        2880,
+        -580
+      ],
+      "id": "583771e3-30f3-43fe-88b4-e517fd5f0e94",
+      "name": "Google Sheets5",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "7cvTGTfHh9pf9pJK",
+          "name": "Google Sheets account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Convert the following specific product name into a short, general category or product type suitable for location-based search on Google Maps or local directories. Focus only on the core product and ignore brand names, colors, and extra features.\n\nProduct name: NOBERO Men's Classic Black Crew Neck T-Shirt\n\nOutput: men's t-shirt   {{ $json.Title }}",
+        "hasOutputParser": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        1760,
+        -1160
+      ],
+      "id": "a20a9a24-bf4e-4616-a755-1eebe625b48c",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        -860
+      ],
+      "id": "d15b91e5-ae15-4f92-b27a-b5c19931fef2",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "k6KneBp598zq0blj",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"Title\": \" \"\n\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1940,
+        -860
+      ],
+      "id": "4630e6b7-0cf7-4486-bb32-2d974b3b02d6",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "url": "=https://serpapi.com/search.json?q={{ $json.output.Title }}&engine=google_local&location=Vadodara,+Vadodara,+Gujarat&api_key=571f4b27c0863b6e90935dae3d6884060b860830335efaf33743ad51f7a97e94\n",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api_key",
+              "value": "571f4b27c0863b6e90935dae3d6884060b860830335efaf33743ad51f7a97e94"
+            },
+            {
+              "name": "engine",
+              "value": "google_maps"
+            },
+            {
+              "name": "q",
+              "value": "Tshirt"
+            },
+            {
+              "name": "ll",
+              "value": "@40.7455096,-74.0083012,14z"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2140,
+        -1160
+      ],
+      "id": "17314b78-6f3f-431f-8915-2fd8da22e8b4",
+      "name": "HTTP Request3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const results = $json.local_results || [];\n\nreturn results.map(result => {\n  return {\n    json: {\n      title: result.title || '',\n      address: result.address || '',\n      phone: result.phone || ''\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2360,
+        -1160
+      ],
+      "id": "19bede05-f74c-441b-8aaf-17a045013d07",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "from": "+14155238886",
+        "to": "+919408532497",
+        "toWhatsapp": true,
+        "message": "hello i am from udaan this is the test message from twillo",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        2800,
+        -900
+      ],
+      "id": "9f3f6ea0-17ba-46f7-b148-8862e000d92b",
+      "name": "Twilio2",
+      "credentials": {
+        "twilioApi": {
+          "id": "RqA5JQuyQymrF8wg",
+          "name": "Twilio account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2780,
+        -1140
+      ],
+      "id": "274a77c3-fd11-4747-bac1-7f57737708ea",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "content": "**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 400,
+        "width": 760
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        720,
+        -1160
+      ],
+      "typeVersion": 1,
+      "id": "b977b002-8db0-41ab-8782-d5be344b46e1",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "path": "233cf069-1c96-4e68-a6fb-7dbd3bcd968e",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        780,
+        -1040
+      ],
+      "id": "b60569bf-c8c7-4653-a90a-1b61f57df771",
+      "name": "Webhook1",
+      "webhookId": "233cf069-1c96-4e68-a6fb-7dbd3bcd968e"
+    },
+    {
+      "parameters": {
+        "url": "=https://serpapi.com/search.json?q=NGO&engine=google_local&location=Vadodara,+Vadodara,+Gujarat&api_key=571f4b27c0863b6e90935dae3d6884060b860830335efaf33743ad51f7a97e94\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1000,
+        -1040
+      ],
+      "id": "a9e1fdb0-a440-4088-940d-69df26b9ba75",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const results = $json.local_results || [];\n\nreturn results.map(result => {\n  return {\n    json: {\n      title: result.title || '',\n      address: result.address || '',\n      phone: result.phone || ''\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1240,
+        -1040
+      ],
+      "id": "c33de8d5-8a1d-4a7d-8020-95f298411452",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "content": "**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 400,
+        "width": 760
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        780,
+        280
+      ],
+      "typeVersion": 1,
+      "id": "9985d772-b4b0-4459-9424-7b5cd685d3de",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "path": "233cf069-1c96-4e68-a6fb-7dbd3bcd968e",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        840,
+        400
+      ],
+      "id": "58b25560-1b06-4f8a-81cf-73de14e2956b",
+      "name": "Webhook2",
+      "webhookId": "233cf069-1c96-4e68-a6fb-7dbd3bcd968e"
+    },
+    {
+      "parameters": {
+        "url": "=https://serpapi.com/search.json?q=Delivery\n+partners&engine=google_local&location=Vadodara,+Vadodara,+Gujarat&api_key=571f4b27c0863b6e90935dae3d6884060b860830335efaf33743ad51f7a97e94\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1060,
+        400
+      ],
+      "id": "8d72a70a-f349-47b4-95e0-f5b15f68e0b9",
+      "name": "HTTP Request2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const results = $json.local_results || [];\n\nreturn results.map(result => {\n  return {\n    json: {\n      title: result.title || '',\n      address: result.address || '',\n      phone: result.phone || ''\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        400
+      ],
+      "id": "024a6024-9295-4714-b668-2424fdb7b1b2",
+      "name": "Code5"
+    },
+    {
+      "parameters": {
+        "from": "+91 9408532497",
+        "to": "+91 9408235163",
+        "toWhatsapp": true,
+        "message": "hello we want your courier service",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        380
+      ],
+      "id": "c06e28d1-c061-4f13-89a5-de4b0bc3b919",
+      "name": "Twilio3",
+      "credentials": {
+        "twilioApi": {
+          "id": "RqA5JQuyQymrF8wg",
+          "name": "Twilio account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets4": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "Code6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code6": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Twilio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Twilio1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Twilio1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request6": {
+      "main": [
+        [
+          {
+            "node": "Code7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code7": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request7": {
+      "main": [
+        [
+          {
+            "node": "MessageBird",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request8": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request9",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request9": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request10": {
+      "main": [
+        [
+          {
+            "node": "Telegram1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram1": {
+      "main": [
+        [
+          {
+            "node": "Code8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code8": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        []
+      ]
+    },
+    "Basic LLM Chain3": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request11": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request13": {
+      "main": [
+        [
+          {
+            "node": "Code9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code9": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request14": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook2": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code5": {
+      "main": [
+        [
+          {
+            "node": "Twilio3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "07a9fc30-0e8e-4bd5-8d46-bf0b923f71e5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a71c5a28c5aba7054601f8c1a1bd532a42840af51e6b6af37748bca601c0d27d"
+  },
+  "id": "nE8Ze2op5HPTzmvM",
+  "tags": []
+}
