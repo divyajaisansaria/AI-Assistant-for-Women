@@ -1,0 +1,10 @@
+# Ignore Python virtual environments and large packages
+env/
+venv/
+**/env/
+**/venv/
+*.dylib
+*.pkl
+*.pt
+*.h5
+*.onnx
