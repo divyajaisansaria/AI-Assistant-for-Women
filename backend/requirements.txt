@@ -1,0 +1,10 @@
+fastapi 
+uvicorn 
+pillow 
+google-generativeai 
+requests 
+python-multipart
+python-dotenv
+openai
+whisper 
+ffmpeg-python
