@@ -63,16 +63,3 @@ B --> C[List product digitally]
 C --> D[Share via WhatsApp or poster]
 D --> E[Connect with local buyer]
 E --> F[Logistics partner handles delivery]
-
-# Clone the repo
-git clone https://github.com/your-username/udaan.git
-cd udaan
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the backend
-python app.py
-
-# (Optional) Start the n8n server
-n8n start
